@@ -17,7 +17,7 @@
                 <tbody>
                     <tr>
                         <td>UserName</td>
-                        <td><input type="text" name="userName" value="" /></td>
+                        <td><input type="text" name="user" value="" /></td>
                     </tr>
                     <tr>
                         <td>Password</td>
