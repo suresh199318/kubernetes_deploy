@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongo-express
+  name: tomcat-express
   labels:
-    app: mongo-express
+    app: tomcat-express
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongo-express
+      app: tomcat-express
   template:
     metadata:
       labels:
-        app: mongo-express
+        app: tomcat-express
     spec:
       containers:
-      - name: mongo-express
+      - name: tomcat-express
         image: suresh1993/samplewebapp:latest
         ports:
         - containerPort: 8080
@@ -24,10 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongo-express-service
+  name: tomcat-express-service
 spec:
   selector:
-    app: mongo-express
+    app: tomcat-express
   type: LoadBalancer  
   ports:
     - protocol: TCP
