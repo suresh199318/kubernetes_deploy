@@ -50,11 +50,11 @@ try {
   }
 
 
+      
 
        if (resultSet.next()) 
 		{ 
-			session.setAttribute("userid", userName); 
-			response.sendRedirect("success.jsp"); 
+			System.out.println("success");
 		} 
 	else 
 		{ 
