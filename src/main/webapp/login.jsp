@@ -5,6 +5,8 @@
  
  String password = request.getParameter("password");  
  
+ String jdbcUrl = "jdbc:mysql://test.crz3syadqqvr.us-east-1.rds.amazonaws.com:3306/test?user=admin&password=adminadmin";
+ 
  try {
     System.out.println("Loading driver...");
     Class.forName("com.mysql.jdbc.Driver");
