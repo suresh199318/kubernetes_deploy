@@ -5,60 +5,17 @@
  
  String password = request.getParameter("password");  
  
- String jdbcUrl = "jdbc:mysql://test.crz3syadqqvr.us-east-1.rds.amazonaws.com:3306/test?user=admin&password=adminadmin";
- 
- try {
-    System.out.println("Loading driver...");
-    Class.forName("com.mysql.jdbc.Driver");
-    System.out.println("Driver loaded!");
-  } catch (ClassNotFoundException e) {
-    throw new RuntimeException("Cannot find the driver in the classpath!", e);
-  }
+Class.forName ("com.mysql.jdbc.Driver").newInstance (); 
 
-  Connection conn = null;
-  Statement setupStatement = null;
-  Statement readStatement = null;
-  ResultSet resultSet = null;
-  String results = "";
-  int numresults = 0;
-  String statement = null;
+        Connection con = DriverManager.getConnection("jdbc:mysql://test.crz3syadqqvr.us-east-1.rds.amazonaws.com:3306/test", "admin", "adminadmin");
 
+        //Here we create our queryPreparedStatement 
 
-try {
-    // Create connection to RDS DB instance
-    conn = DriverManager.getConnection(jdbcUrl);
-    
-    // Create a table and write two rows
-    setupStatement = conn.createStatement();
+       statement = con.prepareStatement("select * from USER where username='" + userName + "' and password='" + password + "';");
 
-    String insertRow1 = "select * from USER where username='" + userName + "' and password='" + password + "';";
-
-    
-    
-   resultSet = setupStatement.executeQuery(insertRow1);
-    
-    setupStatement.close();
-    
-  } catch (SQLException ex) {
-    // Handle any errors
-    System.out.println("SQLException: " + ex.getMessage());
-    System.out.println("SQLState: " + ex.getSQLState());
-    System.out.println("VendorError: " + ex.getErrorCode());
-  } finally {
-    System.out.println("Closing the connection.");
-    if (conn != null) try { conn.close(); } catch (SQLException ignore) {}
-  }
-
-  conn = DriverManager.getConnection(jdbcUrl);
-      
-
-       if (resultSet.next()) 
-		{ 
-			System.out.println("success");
-		} 
-	else 
-		{ 
-			System.out.println("failure");
-} 
+        ResultSet result = statement.executeQuery();
+        while(result.next()){ 
+        System.out.println(result.getString("username") + " " +
+            result.getString("password"));
 
 %>
