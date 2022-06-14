@@ -49,7 +49,7 @@ try {
     if (conn != null) try { conn.close(); } catch (SQLException ignore) {}
   }
 
-
+  conn = DriverManager.getConnection(jdbcUrl);
       
 
        if (resultSet.next()) 
