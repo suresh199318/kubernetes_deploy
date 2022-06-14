@@ -35,7 +35,7 @@ try {
 
     
     
-   resultSet rs = setupStatement.executeQuery(insertRow1);
+   resultSet = setupStatement.executeQuery(insertRow1);
     
     setupStatement.close();
     
@@ -51,7 +51,7 @@ try {
 
 
 
-       if (rs.next()) 
+       if (resultSet.next()) 
 		{ 
 			session.setAttribute("userid", userName); 
 			response.sendRedirect("success.jsp"); 
