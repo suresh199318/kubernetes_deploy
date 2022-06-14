@@ -12,7 +12,8 @@ Connection con=DriverManager.getConnection("jdbc:mysql://test.crz3syadqqvr.us-ea
 Statement stmt=con.createStatement();
 ResultSet rs=stmt.executeQuery("select * from USER where username='" + userName + "' and password='" + password + "'");
 while(rs.next())
-System.out.println("Success");
+session.setAttribute("userid", userName); 
+			response.sendRedirect("success.jsp"); 
 con.close();
 }catch(Exception e){ System.out.println(e);}
 
