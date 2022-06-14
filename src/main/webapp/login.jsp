@@ -31,7 +31,7 @@ try {
     // Create a table and write two rows
     setupStatement = conn.createStatement();
 
-    String insertRow1 = "select * from USER where username='" + userName + "' and password='" + password + "';"
+    String insertRow1 = "select * from USER where username='" + userName + "' and password='" + password + "';";
 
     
     
