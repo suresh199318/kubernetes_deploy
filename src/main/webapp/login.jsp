@@ -11,7 +11,7 @@ Class.forName ("com.mysql.jdbc.Driver").newInstance ();
 
         //Here we create our queryPreparedStatement 
 
-     Statement stmt=con.prepareStatement("select * from USER where username='" + userName + "' and password='" + password + "'");
+     Statement stmt=con.preparedStatement("select * from USER where username='" + userName + "' and password='" + password + "'");
 
         ResultSet result = stmt.executeQuery();
         while(result.next()){ 
