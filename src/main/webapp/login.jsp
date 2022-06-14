@@ -58,6 +58,7 @@ try {
 		} 
 	else 
 		{ 
-			out.println("Invalid password <a href='index.jsp'>try again</a>"); 
+			System.out.println("failure");
 } 
+
 %>
