@@ -35,7 +35,7 @@ try {
 
     
     
-    setupStatement.executeQuery(insertRow1);
+   resultSet rs = setupStatement.executeQuery(insertRow1);
     
     setupStatement.close();
     
@@ -51,10 +51,7 @@ try {
 
 
 
-
- resultSet rs; 
- rs = st.executeQuery("select * from USER where username='" + userName + "' and password='" + password + "'");
-	if (rs.next()) 
+       if (rs.next()) 
 		{ 
 			session.setAttribute("userid", userName); 
 			response.sendRedirect("success.jsp"); 
