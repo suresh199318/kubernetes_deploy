@@ -9,7 +9,7 @@ String userName = request.getParameter("userName");
     String email = request.getParameter("email");
 
   
-  String jdbcUrl = "jdbc:mysql://172.17.0.4:3306/test?user=root&password=password";
+  String jdbcUrl = "jdbc:mysql://test.crz3syadqqvr.us-east-1.rds.amazonaws.com:3306/test?user=admin&password=adminadmin";
   
   // Load the JDBC driver
   try {
