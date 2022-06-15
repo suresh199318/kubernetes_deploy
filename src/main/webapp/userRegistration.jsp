@@ -36,11 +36,8 @@ String userName = request.getParameter("userName");
     setupStatement = conn.createStatement();
 
     String insertRow1 = "insert into USER(first_name, last_name, email, username, password) values ('" + firstName + "','"+ lastName + "','" + email + "','" + userName + "','" + password + "');";
-
     
-   
     setupStatement.addBatch(insertRow1);
-   
     setupStatement.executeBatch();
     setupStatement.close();
     
@@ -58,12 +55,12 @@ String userName = request.getParameter("userName");
     conn = DriverManager.getConnection(jdbcUrl);
     
     readStatement = conn.createStatement();
-    resultSet = readStatement.executeQuery("SELECT Resource FROM Beanstalk;");
+    resultSet = readStatement.executeQuery("SELECT username FROM USER;");
 
     resultSet.first();
-    results = resultSet.getString("Resource");
+    results = resultSet.getString("username");
     resultSet.next();
-    results += ", " + resultSet.getString("Resource");
+    results += ", " + resultSet.getString("username");
     
     resultSet.close();
     readStatement.close();
@@ -78,4 +75,5 @@ String userName = request.getParameter("userName");
        System.out.println("Closing the connection.");
       if (conn != null) try { conn.close(); } catch (SQLException ignore) {}
   }
+
 %>
