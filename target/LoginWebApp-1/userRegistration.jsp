@@ -10,7 +10,7 @@
             "admin", "testtest");
     Statement st = con.createStatement();
     int i = st.executeUpdate("insert into USER(first_name, last_name, email, username, password) values ('" + firstName + "','"
-    + lastName + "','" + email + "','" + userName + "','" + password + "');
+    + lastName + "','" + email + "','" + userName + "','" + password + "'));
     if (i > 0) {
         response.sendRedirect("welcome.jsp");
         
